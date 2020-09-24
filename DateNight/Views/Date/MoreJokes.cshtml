@@ -1,0 +1,12 @@
+﻿@using DateNight.Models
+@model Jokes
+
+@foreach (Result j in Model.results)
+{
+    <p>@j.joke</p>
+}
+<br />
+@if (Model.next_page != Model.current_page)
+{
+    <button onclick="location.href='/Date/MoreJokes?next=@Model.next_page&term=@Model.search_term'">Next Page</button>
+}

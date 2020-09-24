@@ -11,6 +11,7 @@ namespace DateNight.Controllers
     {
         private readonly DateDbContext _context;
         private readonly JokeDAL jd = new JokeDAL();
+        private readonly TriviaDAL td = new TriviaDAL();
         public DateController(DateDbContext Context)
         {
             _context = Context;
@@ -25,9 +26,36 @@ namespace DateNight.Controllers
         }
         public async Task<IActionResult> RandomJokes()
         {
-            Jokes response = await jd.GetRandomJokes();
-            var randomJokes = response.results;
-            return View(randomJokes);
+            Jokes jokes = await jd.GetRandomJokes();
+            return View(jokes);
+        }
+        public async Task<IActionResult> TermJokes(string term)
+        {
+            Jokes termJokes = await jd.GetTermJoke(term);
+            termJokes.search_term = term;
+            return View(termJokes);
+        }
+        public async Task<IActionResult> MoreJokes(int next, string term)
+        {
+            
+            Jokes moreJokes = await jd.GetMore(next, term);
+            return View(moreJokes);
+     
+        }
+        public async Task<IActionResult> RandomTrivia()
+        {
+            Trivia trivia = await td.GetTrivia();
+            return View(trivia);
+        }
+        public async Task<IActionResult> CategoryTrivia(string trivcategory)
+        {
+            Trivia trivia = await td.GetCategory(trivcategory);
+            Results result = new Results();
+            result.category = trivcategory;
+            TriviaResults tr = new TriviaResults();
+            tr.Trivia = trivia;
+            tr.Results = result;
+            return View(tr);
         }
     }
 }

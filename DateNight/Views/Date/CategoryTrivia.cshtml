@@ -1,0 +1,13 @@
+﻿@using DateNight.Models
+@using System.Web;
+
+@model TriviaResults
+
+@foreach (Results t in Model.Trivia.results)
+{
+    <p>
+        Question: @HttpUtility.HtmlDecode(t.question)<br />
+        Answer: @HttpUtility.HtmlDecode(t.correct_answer)
+    </p>
+}
+<button onclick="location.href='/Date/CategoryTrivia?trivcategory=@Model.Results.category'">Next Page</button>

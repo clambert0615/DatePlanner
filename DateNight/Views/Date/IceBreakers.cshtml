@@ -2,4 +2,48 @@
 
 <h3>Jokes</h3>
 <p>Nothing helps break the ice like a random joke!  Get a random joke here: 
-    <button onclick="location.href='/Date/RandomJokes'">Get Joke</button>
+    <button onclick="location.href='/Date/RandomJokes'">Get Jokes</button></p>
+<br />
+<p>Want a joke with a specific search term?  Get it here:</p>
+   <form action="/Date/TermJokes" method="post">
+       <label for="term">Enter a term:</label><br />
+       <input type="text" id="term" name="term" placeholder="term" />
+       <input type ="submit" value="Get Jokes" />
+   </form>
+<br />
+<h3>Trivia</h3>
+<p>If jokes aren't your date's thing, try breaking the ice with some trivia!  Get a random trivia question here:
+   <button onclick="location.href='/Date/RandomTrivia'">Get Question</button> </p>
+<br />
+<p>To get trivia by category use the following drop down box:</p>
+<form action="/Date/CategoryTrivia" method="post">
+    <label for="trivcategory">Choose a category:</label>
+    <select name="trivcategory" id="trivcategory">
+        <option value="">---Choose an option---</option>
+        <option value="9">General Knowledge</option>
+        <option value="10">Entertainment: Books</option>
+        <option value="11">Entertainment: Film</option>
+        <option value="12">Entertainment: Music</option>
+        <option value="13">Entertainment: Musicals and Theaatre</option>
+        <option value="14">Entertainment: Television</option>
+        <option value="15">Entertainment: Video Games</option>
+        <option value="16">Entertainment: Bord Games</option>
+        <option value="29">Entertainment: Comics</option>
+        <option value="31">Entertainment: Japanese Anime and Manga</option>
+        <option value="32">Entertainment: Cartoons and Animation</option>
+        <option value="17">Science and Nature</option>
+        <option value="18">Science: Computers</option>
+        <option value="19">Science: Mathematics</option>
+        <option value="30">Science: Gadgets</option>
+        <option value="20">Mythology</option>
+        <option value="21">Sports</option>
+        <option value="22">Geography</option>
+        <option value="23">History</option>
+        <option value="24">Politics</option>
+        <option value="25">Art</option>
+        <option value="26">Celebrities</option>
+        <option value="27">Animals</option>
+        <option value="28">Vehicles</option>
+    </select>
+    <input type="submit" value="Get Question" />
+</form>

@@ -1,9 +1,10 @@
 ﻿@using DateNight.Models
-@model Result[]
+@model Jokes
 
-@foreach (var j in Model)
+@foreach (Result j in Model.results)
 {
     <p>@j.joke</p>
 }
+<br />
 
-
+<button onclick="location.href='/Date/MoreJokes?next=@Model.next_page&term=@Model.search_term'">Next Page</button>
