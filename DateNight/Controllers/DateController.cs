@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using DateNight.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+
 
 namespace DateNight.Controllers
 {
@@ -12,9 +14,11 @@ namespace DateNight.Controllers
         private readonly DateDbContext _context;
         private readonly JokeDAL jd = new JokeDAL();
         private readonly TriviaDAL td = new TriviaDAL();
-        public DateController(DateDbContext Context)
+        private readonly EventsDAL ed;
+        public DateController(DateDbContext Context, IConfiguration configuration)
         {
             _context = Context;
+            ed = new EventsDAL(configuration);
         }
         public IActionResult Index()
         {
@@ -56,6 +60,16 @@ namespace DateNight.Controllers
             tr.Trivia = trivia;
             tr.Results = result;
             return View(tr);
+        }
+        public async Task<IActionResult> Events(string location, string keyword)
+        {
+            search events = await ed.GetEvents(location, keyword);
+            return View(events);
+        }
+        public async Task<IActionResult> EventDetails(string id)
+        {
+            Event eventDetails = await ed.GetDetails(id);
+            return View(eventDetails);
         }
     }
 }

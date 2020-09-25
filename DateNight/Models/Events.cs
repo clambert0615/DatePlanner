@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace DateNight.Models
 {
-    public class Events
-    {
+    
         // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
         /// <remarks/>
         [System.SerializableAttribute()]
@@ -1165,4 +1164,4 @@ namespace DateNight.Models
 
 
     }
-}
+

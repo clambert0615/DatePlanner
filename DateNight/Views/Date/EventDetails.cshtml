@@ -1,0 +1,38 @@
+﻿@using DateNight.Models
+@model Event
+
+
+
+<h1 style="text-align:center"> @Model.title</h1>
+<br />
+
+<p>Date: @Model.start_time<br>
+URL: <a href="@Model.url">Click here!</a><br />
+Venue: @Model.venue_name<br>
+City: @Model.city</p>
+<br />
+<h3>Description</h3>
+@if (Model.description != "")
+{
+<p>@Model.description</p>
+<br />
+}
+else if(Model.description == "")
+{
+    <p>No Description Listed</p>
+}
+@if (Model.performers.Length > 0)
+{
+<h3>Performers</h3>
+@foreach (var p in Model.performers)
+{
+   <p>Name: @p.name <br />
+    Bio: @p.short_bio</p>
+
+}
+}
+else if(Model.performers.Length == 0)
+{
+    <p>No Performers Listed</p>
+}
+

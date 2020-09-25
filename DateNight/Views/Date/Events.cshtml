@@ -1,0 +1,25 @@
+﻿@using DateNight.Models
+@model search
+
+<table style="width:100%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var e in Model.events)
+        {
+            <tr>
+                <td><a href ="/Date/EventDetails?id=@e.id">@e.title</a></td>
+                <td>@e.start_time</td>
+                <td>@e.venue_name</td>
+                <td>@e.city_name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
