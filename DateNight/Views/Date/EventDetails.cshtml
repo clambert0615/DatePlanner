@@ -6,7 +6,7 @@
 <h1 style="text-align:center"> @Model.title</h1>
 <br />
 
-<p>Date: @Model.start_time<br>
+<p>Date: @Convert.ToDateTime(Model.start_time)<br>
 URL: <a href="@Model.url">Click here!</a><br />
 Venue: @Model.venue_name<br>
 City: @Model.city</p>
@@ -14,25 +14,27 @@ City: @Model.city</p>
 <h3>Description</h3>
 @if (Model.description != "")
 {
-<p>@Model.description</p>
+<p>@Html.Raw(Model.description)</p>
 <br />
 }
 else if(Model.description == "")
 {
     <p>No Description Listed</p>
 }
-@if (Model.performers.Length > 0)
-{
 <h3>Performers</h3>
-@foreach (var p in Model.performers)
+@if (Model.performers.performer != null)
 {
-   <p>Name: @p.name <br />
-    Bio: @p.short_bio</p>
+
+   <p>Name: @Model.performers.performer.name <br />
+    Bio: @Model.performers.performer.short_bio </p>
 
 }
-}
-else if(Model.performers.Length == 0)
+else if(Model.performers.performer == null)
 {
     <p>No Performers Listed</p>
 }
-
+<h3>Images</h3>
+@foreach (var i in Model.images)
+{
+<img src="@i.medium.url">
+}

@@ -1,0 +1,25 @@
+﻿@using DateNight.Models
+
+@model Movie[]
+
+    <head>
+        <style>
+            div.a{
+                text-indent: 40px;
+            }
+
+        </style>
+    </head>
+
+@foreach(Movie m in Model)
+{
+    <p>Title: @m.title<br />
+    Showtimes: @foreach(Showtime s in m.showtimes)
+    {
+    <div class="a">
+        Time: @Convert.ToDateTime(s.dateTime) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Theater: @s.theatre.name
+    </div>
+    }
+    </p>
+}

@@ -1,13 +1,13 @@
 ﻿@using DateNight.Models
 @model search
 
-<table style="width:100%">
+<table style="width:100%" id="eventsTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Venue</th>
-            <th>City</th>
+            <th onclick="sortTable(0)" style="cursor:pointer">Title</th>
+            <th onclick="sortTable(1)" style="cursor:pointer">Date</th>
+            <th onclick="sortTable(2)" style="cursor:pointer">Venue</th>
+            <th onclick="sortTable(3)" style="cursor:pointer">City</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +15,7 @@
         {
             <tr>
                 <td><a href ="/Date/EventDetails?id=@e.id">@e.title</a></td>
-                <td>@e.start_time</td>
+                <td>@Convert.ToDateTime(e.start_time).ToString("yyyy-MM-dd")</td>
                 <td>@e.venue_name</td>
                 <td>@e.city_name</td>
             </tr>
@@ -23,3 +23,50 @@
     </tbody>
 </table>
 
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("eventsTable");
+        switching = true;
+        dir = "asc";
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                let xData = x.innerText;
+                let yData = y.innerText;
+                const isNumeric =
+                    xData.indexOf("-") === -1 &&
+                    yData.indexOf("-") === -1 &&
+                    !isNaN(parseFloat(xData)) &&
+                    !isNaN(parseFloat(yData));
+                if (dir == "asc") {
+                    if ((isNumeric && parseFloat(xData) > parseFloat(yData)) ||
+                        (!isNumeric && xData.toLowerCase() > yData.toLowerCase())) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if ((isNumeric && parseFloat(xData) < parseFloat(yData)) ||
+                        (!isNumeric && xData.toLowerCase() < yData.toLowerCase())) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount++;
+            } else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+    </script>

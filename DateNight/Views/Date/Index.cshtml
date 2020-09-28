@@ -4,11 +4,20 @@
 
 <br />
 <h3>Unsure what to do?  How about looking for an event, movie, or restaurant.</h3>
-<p>Search for an event by location and keyword:</p>
+<h5>Search for an event by location and keyword:</h5>
 <form action="/Date/Events" method="post">
-       <label for="location">Location (City or City/State)</label><br />
+       <label for="location">Location (City or City/State): </label><br />
        <input type="text" id="location" name="location" placeholder="location" /><br />
-       <label for="keyword">Keyword</label><br />
+       <label for="keyword">Keyword:</label><br />
        <input type="text" id="keyword" name="keyword" placeholder="keyword" /><br />
        <input type="submit" value="Submit" />
+</form>
+<br />
+<h5>Search for a movie by location and date:</h5>
+<form action="/Date/Movies" method="post">
+    <label for="zip">Zip Code: </label><br />
+    <input type="text" id="zip" name="zip" minlength="5" maxlength="5" placeholder="zip"/> <br />
+    <label for="date">Date: </label><br />
+    <input type="date" id="date" name="date" /><br />
+    <input type="submit" value="submit" />
 </form>

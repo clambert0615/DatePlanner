@@ -15,10 +15,12 @@ namespace DateNight.Controllers
         private readonly JokeDAL jd = new JokeDAL();
         private readonly TriviaDAL td = new TriviaDAL();
         private readonly EventsDAL ed;
+        private readonly MoviesDAL md;
         public DateController(DateDbContext Context, IConfiguration configuration)
         {
             _context = Context;
             ed = new EventsDAL(configuration);
+            md = new MoviesDAL(configuration);
         }
         public IActionResult Index()
         {
@@ -63,6 +65,7 @@ namespace DateNight.Controllers
         }
         public async Task<IActionResult> Events(string location, string keyword)
         {
+            
             search events = await ed.GetEvents(location, keyword);
             return View(events);
         }
@@ -70,6 +73,13 @@ namespace DateNight.Controllers
         {
             Event eventDetails = await ed.GetDetails(id);
             return View(eventDetails);
+        }
+
+        public async Task<IActionResult> Movies(string zip, DateTime date)
+        {
+            string dateConvert = date.ToString("yyyy-MM-dd");
+            Movie[] movies = await md.GetMovies(zip, dateConvert);
+            return View(movies);
         }
     }
 }

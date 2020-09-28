@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 namespace DateNight.Models
 {
 
+
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
     /// <remarks/>
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [System.Xml.Serialization.XmlRootAttribute(ElementName = "event", Namespace = "", IsNullable = false)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", ElementName ="event", IsNullable = false)]
     public partial class Event
     {
 
@@ -19,7 +20,7 @@ namespace DateNight.Models
 
         private string titleField;
 
-        private string descriptionField;
+        private object descriptionField;
 
         private string start_timeField;
 
@@ -41,11 +42,11 @@ namespace DateNight.Models
 
         private string venue_idField;
 
-        private object venue_typeField;
+        private string venue_typeField;
 
         private byte venue_displayField;
 
-        private object addressField;
+        private string addressField;
 
         private string cityField;
 
@@ -89,15 +90,15 @@ namespace DateNight.Models
 
         private object childrenField;
 
-        private eventLink[] linksField;
+        private object linksField;
 
-        private eventComment[] commentsField;
+        private object commentsField;
 
         private object trackbacksField;
 
-        private eventPerformer[] performersField;
+        private eventPerformers performersField;
 
-        private object imagesField;
+        private eventImage[] imagesField;
 
         private eventTag[] tagsField;
 
@@ -107,7 +108,7 @@ namespace DateNight.Models
 
         private object goingField;
 
-        private eventProperty[] propertiesField;
+        private object propertiesField;
 
         private eventCategories categoriesField;
 
@@ -144,7 +145,7 @@ namespace DateNight.Models
         {
             get
             {
-                return this.descriptionField;
+                return (string)this.descriptionField;
             }
             set
             {
@@ -283,7 +284,7 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        public object venue_type
+        public string venue_type
         {
             get
             {
@@ -309,7 +310,7 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        public object address
+        public string address
         {
             get
             {
@@ -595,8 +596,7 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("link", IsNullable = false)]
-        public eventLink[] links
+        public object links
         {
             get
             {
@@ -609,8 +609,7 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("comment", IsNullable = false)]
-        public eventComment[] comments
+        public object comments
         {
             get
             {
@@ -636,8 +635,7 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("performer", IsNullable = false)]
-        public eventPerformer[] performers
+        public eventPerformers performers
         {
             get
             {
@@ -650,7 +648,8 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        public object images
+        [System.Xml.Serialization.XmlArrayItemAttribute("image", IsNullable = false)]
+        public eventImage[] images
         {
             get
             {
@@ -716,8 +715,7 @@ namespace DateNight.Models
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("property", IsNullable = false)]
-        public eventProperty[] properties
+        public object properties
         {
             get
             {
@@ -761,97 +759,21 @@ namespace DateNight.Models
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eventLink
+    public partial class eventPerformers
     {
 
-        private string urlField;
-
-        private string typeField;
-
-        private string descriptionField;
-
-        private string usernameField;
-
-        private string timeField;
-
-        private uint idField;
+        private eventPerformersPerformer performerField;
 
         /// <remarks/>
-        public string url
+        public eventPerformersPerformer performer
         {
             get
             {
-                return this.urlField;
+                return this.performerField;
             }
             set
             {
-                this.urlField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string type
-        {
-            get
-            {
-                return this.typeField;
-            }
-            set
-            {
-                this.typeField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string description
-        {
-            get
-            {
-                return this.descriptionField;
-            }
-            set
-            {
-                this.descriptionField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string username
-        {
-            get
-            {
-                return this.usernameField;
-            }
-            set
-            {
-                this.usernameField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string time
-        {
-            get
-            {
-                return this.timeField;
-            }
-            set
-            {
-                this.timeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public uint id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
+                this.performerField = value;
             }
         }
     }
@@ -860,76 +782,7 @@ namespace DateNight.Models
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eventComment
-    {
-
-        private string textField;
-
-        private string usernameField;
-
-        private string timeField;
-
-        private uint idField;
-
-        /// <remarks/>
-        public string text
-        {
-            get
-            {
-                return this.textField;
-            }
-            set
-            {
-                this.textField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string username
-        {
-            get
-            {
-                return this.usernameField;
-            }
-            set
-            {
-                this.usernameField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string time
-        {
-            get
-            {
-                return this.timeField;
-            }
-            set
-            {
-                this.timeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public uint id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eventPerformer
+    public partial class eventPerformersPerformer
     {
 
         private string idField;
@@ -1027,6 +880,293 @@ namespace DateNight.Models
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class eventImage
+    {
+
+        private string idField;
+
+        private string creatorField;
+
+        private string urlField;
+
+        private byte widthField;
+
+        private byte heightField;
+
+        private eventImageThumb thumbField;
+
+        private eventImageSmall smallField;
+
+        private eventImageMedium mediumField;
+
+        /// <remarks/>
+        public string id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string creator
+        {
+            get
+            {
+                return this.creatorField;
+            }
+            set
+            {
+                this.creatorField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string url
+        {
+            get
+            {
+                return this.urlField;
+            }
+            set
+            {
+                this.urlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte width
+        {
+            get
+            {
+                return this.widthField;
+            }
+            set
+            {
+                this.widthField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte height
+        {
+            get
+            {
+                return this.heightField;
+            }
+            set
+            {
+                this.heightField = value;
+            }
+        }
+
+        /// <remarks/>
+        public eventImageThumb thumb
+        {
+            get
+            {
+                return this.thumbField;
+            }
+            set
+            {
+                this.thumbField = value;
+            }
+        }
+
+        /// <remarks/>
+        public eventImageSmall small
+        {
+            get
+            {
+                return this.smallField;
+            }
+            set
+            {
+                this.smallField = value;
+            }
+        }
+
+        /// <remarks/>
+        public eventImageMedium medium
+        {
+            get
+            {
+                return this.mediumField;
+            }
+            set
+            {
+                this.mediumField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class eventImageThumb
+    {
+
+        private string urlField;
+
+        private byte widthField;
+
+        private byte heightField;
+
+        /// <remarks/>
+        public string url
+        {
+            get
+            {
+                return this.urlField;
+            }
+            set
+            {
+                this.urlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte width
+        {
+            get
+            {
+                return this.widthField;
+            }
+            set
+            {
+                this.widthField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte height
+        {
+            get
+            {
+                return this.heightField;
+            }
+            set
+            {
+                this.heightField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class eventImageSmall
+    {
+
+        private string urlField;
+
+        private byte widthField;
+
+        private byte heightField;
+
+        /// <remarks/>
+        public string url
+        {
+            get
+            {
+                return this.urlField;
+            }
+            set
+            {
+                this.urlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte width
+        {
+            get
+            {
+                return this.widthField;
+            }
+            set
+            {
+                this.widthField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte height
+        {
+            get
+            {
+                return this.heightField;
+            }
+            set
+            {
+                this.heightField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class eventImageMedium
+    {
+
+        private string urlField;
+
+        private byte widthField;
+
+        private byte heightField;
+
+        /// <remarks/>
+        public string url
+        {
+            get
+            {
+                return this.urlField;
+            }
+            set
+            {
+                this.urlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte width
+        {
+            get
+            {
+                return this.widthField;
+            }
+            set
+            {
+                this.widthField = value;
+            }
+        }
+
+        /// <remarks/>
+        public byte height
+        {
+            get
+            {
+                return this.heightField;
+            }
+            set
+            {
+                this.heightField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class eventTag
     {
 
@@ -1073,59 +1213,6 @@ namespace DateNight.Models
             set
             {
                 this.idField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class eventProperty
-    {
-
-        private uint idField;
-
-        private string nameField;
-
-        private string valueField;
-
-        /// <remarks/>
-        public uint id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
             }
         }
     }
@@ -1190,6 +1277,8 @@ namespace DateNight.Models
             }
         }
     }
+
+
 
 
 }
