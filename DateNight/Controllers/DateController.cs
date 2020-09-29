@@ -16,11 +16,17 @@ namespace DateNight.Controllers
         private readonly TriviaDAL td = new TriviaDAL();
         private readonly EventsDAL ed;
         private readonly MoviesDAL md;
+        private readonly ZipCodeDAL zd;
+        private readonly PlacesDAL pd;
+        private readonly WeatherDAL wd;
         public DateController(DateDbContext Context, IConfiguration configuration)
         {
             _context = Context;
             ed = new EventsDAL(configuration);
             md = new MoviesDAL(configuration);
+            zd = new ZipCodeDAL(configuration);
+            pd = new PlacesDAL(configuration);
+            wd = new WeatherDAL(configuration);
         }
         public IActionResult Index()
         {
@@ -63,6 +69,10 @@ namespace DateNight.Controllers
             tr.Results = result;
             return View(tr);
         }
+        public IActionResult EventIndex()
+        {
+            return View();
+        }
         public async Task<IActionResult> Events(string location, string keyword)
         {
             
@@ -75,11 +85,60 @@ namespace DateNight.Controllers
             return View(eventDetails);
         }
 
+        public IActionResult MovieIndex()
+        {
+            return View();
+        }
         public async Task<IActionResult> Movies(string zip, DateTime date)
         {
             string dateConvert = date.ToString("yyyy-MM-dd");
             Movie[] movies = await md.GetMovies(zip, dateConvert);
             return View(movies);
+        }
+        public IActionResult ActivityIndex()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Places(string zip, string keyword)
+        {
+            CityState location = await zd.GetCity(zip);
+            float latitude = location.lat;
+            float longitude = location.lng;
+            Places places = await pd.GetPlaces(latitude, longitude, keyword);
+            return View(places);
+        }
+        
+        public async Task<IActionResult> PlaceDetails(string id)
+        {
+            PlaceDetails details = await pd.GetDetails(id);
+            return View(details);
+        }
+
+        public async Task<IActionResult> GetMorePlaces(string token)
+        {
+            var morePlaces = await pd.MorePlaces(token);
+            return View(morePlaces);
+        }
+        public IActionResult RestaurantIndex()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Restaurants(string zip, string cuisine)
+        {
+            CityState location = await zd.GetCity(zip);
+            float latitude = location.lat;
+            float longitude = location.lng;
+            Places places = await pd.GetRestaurants(latitude, longitude, cuisine);
+            return View(places);
+        }
+        public IActionResult WeatherIndex()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Weather(string zip)
+        {
+            Weather weather = await wd.GetWeather(zip);
+            return View(weather);
         }
     }
 }

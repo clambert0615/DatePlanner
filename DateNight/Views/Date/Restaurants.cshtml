@@ -1,0 +1,37 @@
+﻿@using DateNight.Models
+@model Places
+
+<h1 style="text-align:center">Restaurants</h1>
+<br />
+<table style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.results)
+        {
+            <tr>
+                <td><a href="/Date/PlaceDetails?id=@p.place_id">@p.name</a></td>
+                <td>@p.vicinity</td>
+                <td>@p.rating</td>
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+@if (Model.next_page_token != null)
+{
+    <button onclick="location.href='/Date/GetMorePlaces?token=@Model.next_page_token'">Next Page</button>
+}
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

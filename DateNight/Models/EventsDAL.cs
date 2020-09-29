@@ -29,7 +29,7 @@ namespace DateNight.Models
             string encodedLocation = HttpUtility.UrlEncode(location);
             string encodedKeywords = HttpUtility.UrlEncode(keywords);
             HttpClient client = GetHttpClient();
-            var response = await client.GetStringAsync($"events/search?app_key={APIKey}&location={encodedLocation}&keywords={encodedKeywords}&page_size=25");
+            var response = await client.GetStringAsync($"events/search?app_key={APIKey}&location={encodedLocation}&keywords={encodedKeywords}&page_size=50");
             var stringReader = new System.IO.StringReader(response);
             var serializer = new XmlSerializer(typeof(search));
             return serializer.Deserialize(stringReader) as search;

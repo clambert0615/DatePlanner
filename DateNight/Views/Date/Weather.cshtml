@@ -1,0 +1,49 @@
+﻿@using DateNight.Models
+@model Weather
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 32.33%;
+            padding: 10px;
+        }
+
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @@media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<h1 style="text-align:center">Weather Forecast</h1>
+<br />
+<div class="row">
+@foreach (var w in Model.forecast.forecastday)
+{
+    <div class="column">
+        Date: @w.date &nbsp;&nbsp;&nbsp; <img src=@w.day.condition.icon><br />
+        High Temperature: @w.day.maxtemp_f°F<br />
+        Low Temperature: @w.day.mintemp_f°F <br />
+        Conditions: @w.day.condition.text <br />
+        Max Wind Speed: @w.day.maxwind_mph mph <br />
+        Humidity: @w.day.avghumidity %<br />
+        Chance of Rain: @w.day.daily_chance_of_rain %<br />
+        Chance of Snow: @w.day.daily_chance_of_snow %<br />
+
+    </div>
+       
+}
+</div>  

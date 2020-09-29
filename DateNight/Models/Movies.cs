@@ -8,7 +8,7 @@ namespace DateNight.Models
 {
     public class Rootobject
     {
-        public Movie[] Property1 { get; set; }
+       public Movie[] Property1 { get; set; }
     }
 
     public class Movie
@@ -36,6 +36,7 @@ namespace DateNight.Models
         public Qualityrating qualityRating { get; set; }
         public string audience { get; set; }
         public string animation { get; set; }
+        public string Key { get; set; }
     }
 
     public class Preferredimage

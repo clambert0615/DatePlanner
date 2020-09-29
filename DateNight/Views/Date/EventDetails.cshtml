@@ -6,18 +6,20 @@
 <h1 style="text-align:center"> @Model.title</h1>
 <br />
 
-<p>Date: @Convert.ToDateTime(Model.start_time)<br>
-URL: <a href="@Model.url">Click here!</a><br />
-Venue: @Model.venue_name<br>
-City: @Model.city</p>
+<p>
+    Date: @Convert.ToDateTime(Model.start_time)<br>
+    URL: <a href="@Model.url">Click here!</a><br />
+    Venue: @Model.venue_name<br>
+    City: @Model.city
+</p>
 <br />
 <h3>Description</h3>
 @if (Model.description != "")
 {
-<p>@Html.Raw(Model.description)</p>
-<br />
+    <p>@Html.Raw(Model.description)</p>
+    <br />
 }
-else if(Model.description == "")
+else if (Model.description == "")
 {
     <p>No Description Listed</p>
 }
@@ -25,16 +27,25 @@ else if(Model.description == "")
 @if (Model.performers.performer != null)
 {
 
-   <p>Name: @Model.performers.performer.name <br />
-    Bio: @Model.performers.performer.short_bio </p>
+    <p>
+        Name: @Model.performers.performer.name <br />
+        Bio: @Model.performers.performer.short_bio
+    </p>
 
 }
-else if(Model.performers.performer == null)
+else if (Model.performers.performer == null)
 {
     <p>No Performers Listed</p>
 }
 <h3>Images</h3>
 @foreach (var i in Model.images)
 {
-<img src="@i.medium.url">
+    <img src="@i.medium.url">
 }
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

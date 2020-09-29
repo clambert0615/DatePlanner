@@ -9,5 +9,12 @@
 <br />
 @if (Model.next_page != Model.current_page)
 {
-<button onclick="location.href='/Date/MoreJokes?next=@Model.next_page&term=@Model.search_term'">Next Page</button>
+    <button onclick="location.href='/Date/MoreJokes?next=@Model.next_page&term=@Model.search_term'">Next Page</button>
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 }

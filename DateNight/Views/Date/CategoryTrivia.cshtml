@@ -11,3 +11,10 @@
     </p>
 }
 <button onclick="location.href='/Date/CategoryTrivia?trivcategory=@Model.Results.category'">Next Page</button>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

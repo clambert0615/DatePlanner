@@ -2,24 +2,39 @@
 
 @model Movie[]
 
-    <head>
-        <style>
-            div.a{
-                text-indent: 40px;
-            }
+<head>
+    <style>
+        div.a {
+            text-indent: 40px;
+        }
+    </style>
+</head>
 
-        </style>
-    </head>
-
-@foreach(Movie m in Model)
+@foreach (Movie m in Model)
 {
-    <p>Title: @m.title<br />
-    Showtimes: @foreach(Showtime s in m.showtimes)
-    {
-    <div class="a">
-        Time: @Convert.ToDateTime(s.dateTime) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Theater: @s.theatre.name
-    </div>
-    }
+    <h4>Title: @m.title</h4>
+    <p>
+        <b>Rating:</b> @m.ratings[0].body: @m.ratings[0].code <br />
+        <b>Runtime:</b> @m.runTime<br />
+        <b>Description:</b> @m.longDescription<br />
+        <b>Cast:</b> @foreach (string c in m.topCast)
+        {
+            <div class="a">@c, &nbsp;</div>
+        }
+
+        <b>Showtimes:</b> @foreach (Showtime s in m.showtimes)
+        {
+            <div class="a">
+                Time: @Convert.ToDateTime(s.dateTime) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Theater: @s.theatre.name
+            </div>
+        }
     </p>
 }
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

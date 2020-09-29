@@ -3,10 +3,19 @@
 
 @model Trivia
 
-@foreach(Results t in Model.results)
+@foreach (Results t in Model.results)
 {
-    <p>Question: @HttpUtility.HtmlDecode(t.question)<br />
-    Answer: @HttpUtility.HtmlDecode(t.correct_answer)</p>
+    <p>
+        Question: @HttpUtility.HtmlDecode(t.question)<br />
+        Answer: @HttpUtility.HtmlDecode(t.correct_answer)
+    </p>
 }
 
 <button onclick="location.href='/Date/RandomTrivia'">Next Page</button>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

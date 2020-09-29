@@ -27,10 +27,7 @@ namespace DateNight.Models
         {
             HttpClient client = GetClient();
             var response = await client.GetAsync($"showings?startDate={date}&zip={zip}&api_key={APIKey}");
-            // Rootobject movies = await response.Content.ReadAsAsync<Rootobject>();
-
-            var responsejson = await response.Content.ReadAsStringAsync();
-            Movie[] movies = JsonConvert.DeserializeObject<Movie[]>(responsejson);
+            Movie[] movies = await response.Content.ReadAsAsync<Movie[]>();
             return movies;
         }
     }

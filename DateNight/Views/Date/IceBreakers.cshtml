@@ -1,19 +1,23 @@
 ﻿<h1 style="text-align:center">Ice Breakers</h1>
 
 <h3>Jokes</h3>
-<p>Nothing helps break the ice like a random joke!  Get a random joke here: 
-    <button onclick="location.href='/Date/RandomJokes'">Get Jokes</button></p>
+<p>
+    Nothing helps break the ice like a random joke!  Get a random joke here:
+    <button onclick="location.href='/Date/RandomJokes'">Get Jokes</button>
+</p>
 <br />
 <p>Want a joke with a specific search term?  Get it here:</p>
-   <form action="/Date/TermJokes" method="post">
-       <label for="term">Enter a term:</label><br />
-       <input type="text" id="term" name="term" placeholder="term" />
-       <input type ="submit" value="Get Jokes" />
-   </form>
+<form action="/Date/TermJokes" method="post">
+    <label for="term">Enter a term:</label><br />
+    <input type="text" id="term" name="term" placeholder="term" />
+    <input type="submit" value="Get Jokes" />
+</form>
 <br />
 <h3>Trivia</h3>
-<p>If jokes aren't your date's thing, try breaking the ice with some trivia!  Get a random trivia question here:
-   <button onclick="location.href='/Date/RandomTrivia'">Get Question</button> </p>
+<p>
+    If jokes aren't your date's thing, try breaking the ice with some trivia!  Get a random trivia question here:
+    <button onclick="location.href='/Date/RandomTrivia'">Get Question</button>
+</p>
 <br />
 <p>To get trivia by category use the following drop down box:</p>
 <form action="/Date/CategoryTrivia" method="post">
@@ -47,3 +51,10 @@
     </select>
     <input type="submit" value="Get Question" />
 </form>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

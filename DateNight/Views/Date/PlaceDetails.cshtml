@@ -1,0 +1,41 @@
+﻿@using DateNight.Models
+@model PlaceDetails
+
+<h1 style="text-align:center">Details for @Model.result.name</h1>
+<br />
+<p>
+    Address: @Model.result.vicinity <br />
+    Website: <a href="@Model.result.website">Click here!</a>
+</p>
+<br />
+<h3>User Rating: @Model.result.rating</h3>
+@if (Model.result.reviews.Length > 0)
+{
+    foreach (var review in Model.result.reviews)
+    {
+        <p>
+            Author Name: @review.author_name<br />
+            Rating: @review.rating<br />
+            Review: @review.text
+        </p>
+        <hr class="new" />
+    }
+}
+@if (Model.result.photos.Length > 0)
+{
+    <h3>Photos</h3>
+
+    foreach (var photo in Model.result.photos)
+    {
+        <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=@photo.photo_reference&key=@Model.apiKey" />
+    }
+}
+
+<br />
+<button onclick="goBack()">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
