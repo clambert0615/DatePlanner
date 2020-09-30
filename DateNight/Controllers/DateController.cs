@@ -140,5 +140,14 @@ namespace DateNight.Controllers
             Weather weather = await wd.GetWeather(zip);
             return View(weather);
         }
+
+        public IActionResult Quiz()
+        {
+            return View();
+        }
+        public IActionResult StyleQuiz()
+        {
+            return View();
+        }
     }
 }
