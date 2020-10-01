@@ -28,22 +28,29 @@
     </style>
 </head>
 
-<h1 style="text-align:center">Weather Forecast</h1>
+<h1 style="text-align:center;color:darkblue">Weather Forecast</h1>
 <br />
 <div class="row">
-@foreach (var w in Model.forecast.forecastday)
-{
-    <div class="column">
-        Date: @w.date &nbsp;&nbsp;&nbsp; <img src=@w.day.condition.icon><br />
-        High Temperature: @w.day.maxtemp_f°F<br />
-        Low Temperature: @w.day.mintemp_f°F <br />
-        Conditions: @w.day.condition.text <br />
-        Max Wind Speed: @w.day.maxwind_mph mph <br />
-        Humidity: @w.day.avghumidity %<br />
-        Chance of Rain: @w.day.daily_chance_of_rain %<br />
-        Chance of Snow: @w.day.daily_chance_of_snow %<br />
+    @foreach (var w in Model.forecast.forecastday)
+    {
+        <div class="column">
+            Date: @w.date &nbsp;&nbsp;&nbsp; <img src=@w.day.condition.icon><br />
+            High Temperature: @w.day.maxtemp_f°F<br />
+            Low Temperature: @w.day.mintemp_f°F <br />
+            Conditions: @w.day.condition.text <br />
+            Max Wind Speed: @w.day.maxwind_mph mph <br />
+            Humidity: @w.day.avghumidity %<br />
+            Chance of Rain: @w.day.daily_chance_of_rain %<br />
+            Chance of Snow: @w.day.daily_chance_of_snow %<br />
 
-    </div>
-       
-}
-</div>  
+        </div>
+
+    }
+</div>
+<button onclick="goBack()" style="background-color:lightblue;position:absolute;bottom:100px">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

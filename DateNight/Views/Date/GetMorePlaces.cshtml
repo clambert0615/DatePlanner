@@ -1,14 +1,14 @@
 ﻿@using DateNight.Models
 @model Places
 
-<h1 style="text-align:center">Results</h1>
+
 <br />
-<table style="width:100%">
+<table style="width:100%" id="moreTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Rating</th>
+            <th onclick="sortTable(0)" style="cursor:pointer">Name</th>
+            <th onclick="sortTable(1)" style="cursor:pointer">Location</th>
+            <th onclick="sortTable(2)" style="cursor:pointer">Rating</th>
         </tr>
     </thead>
     <tbody>
@@ -26,12 +26,58 @@
 </table>
 @if (Model.next_page_token != null)
 {
-    <button onclick="location.href='/Date/GetMorePlaces?token=@Model.next_page_token'">Next Page</button>
+    <button onclick="location.href='/Date/GetMorePlaces?token=@Model.next_page_token'" style="background-color:lightblue">Next Page</button>
 }
-<button onclick="goBack()">Go Back</button>
+<button onclick="goBack()" style="background-color:lightblue">Go Back</button>
 
 <script>
     function goBack() {
         window.history.back();
+    }
+
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("moreTable");
+        switching = true;
+        dir = "asc";
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                let xData = x.innerText;
+                let yData = y.innerText;
+                const isNumeric =
+                    xData.indexOf("-") === -1 &&
+                    yData.indexOf("-") === -1 &&
+                    !isNaN(parseFloat(xData)) &&
+                    !isNaN(parseFloat(yData));
+                if (dir == "asc") {
+                    if ((isNumeric && parseFloat(xData) > parseFloat(yData)) ||
+                        (!isNumeric && xData.toLowerCase() > yData.toLowerCase())) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if ((isNumeric && parseFloat(xData) < parseFloat(yData)) ||
+                        (!isNumeric && xData.toLowerCase() < yData.toLowerCase())) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount++;
+            } else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
     }
 </script>

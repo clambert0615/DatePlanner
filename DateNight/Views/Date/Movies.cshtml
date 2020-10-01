@@ -2,6 +2,8 @@
 
 @model Movie[]
 
+    <h1 style="text-align:center;font-size:400%;color:darkred">Movie Search</h1>
+<br />
 <head>
     <style>
         div.a {
@@ -29,9 +31,10 @@
                 Theater: @s.theatre.name
             </div>
         }
+        <hr style="height:2px;border-width:0;color:darkred;background-color:darkred">
     </p>
 }
-<button onclick="goBack()">Go Back</button>
+<button onclick="goBack()" style="background-color:lightblue">Go Back</button>
 
 <script>
     function goBack() {

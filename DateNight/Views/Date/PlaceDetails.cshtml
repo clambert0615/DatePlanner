@@ -1,7 +1,7 @@
 ﻿@using DateNight.Models
 @model PlaceDetails
 
-<h1 style="text-align:center">Details for @Model.result.name</h1>
+<h1 style="text-align:center;font-size:400%;color:darkcyan">Details for @Model.result.name</h1>
 <br />
 <p>
     Address: @Model.result.vicinity <br />
@@ -32,7 +32,7 @@
 }
 
 <br />
-<button onclick="goBack()">Go Back</button>
+<button onclick="goBack()" style="background-color:lightblue">Go Back</button>
 
 <script>
     function goBack() {

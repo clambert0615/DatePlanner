@@ -26,77 +26,84 @@
 
 <body>
 
-<h1>Welcome to the Ultimate Date Night Planner</h1>
-<br />
-<p>
-    Have you ever had a first date and you don't know where to start planning it?  You will be happy to know that
-    you have come to the right place.  This website will take the stress out of planning a first date.
-</p>
-<br />
+    <h1 style="font-size:400%;text-align:center;color:crimson"> Ultimate Date Night Planner</h1>
+    <br />
+    <p style="font-size:150%">
+        Have you ever had a first date and you don't know where to start planning it?  You will be happy to know that
+        you have come to the right place.  This website will take the stress out of planning a first date.
+    </p>
+    <br />
     <div>
-    <h3>First Date Quizzes</h3>
-    Before going on a first date, it is always good to know your love personality and get help with what to wear.
-    The following two quizzes will help you to prepare for a first date in order to ensure a second date! <br />
+        <h3 style="font-size:400%"> First Date Quizzes <img src="~/Images/quiz.png" style="height:150px;width:250px;vertical-align:bottom;margin-left:80px" /> </h3>
+        Before going on a first date, it is always good to know your love personality and get help with what to wear.
+        The following two quizzes will help you to prepare for a first date in order to ensure a second date! <br />
+        <div class="row">
+            <div class="column">
+                Love Personality Quiz: <button onclick="location.href='/Date/Quiz'" style="background-color:lightblue">Take Quiz</button><br />
+            </div>
+            <div class="column">
+                Style Quiz: <button onclick="location.href='/Date/StyleQuiz'" style="background-color:lightblue">Take Quiz</button>
+            </div>
+        </div>
+        <hr style="height:2px;border-width:0;color:crimson;background-color:crimson">
+    </div>
+    <br />
+    <div>
+        <h3 style="font-size:400%">
+            Need an Icebreaker?<img src="~/Images/icebreaker.png" style="height:150px;width:300px;vertical-align:bottom;margin-left:200px" />
+        </h3>
+        First dates are always difficult. You never know what to say or what to talk about.  We are here to help.  You can
+        find a funny joke to break the ice or some trivia based on your favorite category. <br />
+        <button onclick="location.href='/Date/IceBreakers'" style="background-color:lightblue">Get Icebreakers</button>
+        <hr style="height:2px;border-width:0;color:crimson;background-color:crimson">
+    </div>
+    <br />
+    <br />
+    <div>
+        <h3 style="font-size:400%">Weather  <img src="~/Images/sun.jpg" style="height:150px;width:300px;vertical-align:bottom;margin-left:200px" /></h3>
+        Knowing what the weather is going to be like is critical! Make sure your date doesn't end up rained out and you
+        are attired appropriately. Get a three day weather forecast. <br />
+        <button onclick="location.href='/Date/WeatherIndex'" style="background-color:lightblue">Weather</button>
+        <hr style="height:2px;border-width:0;color:crimson;background-color:crimson">
+    </div>
+    <br />
+    <br />
+
+    <h3 style="font-size:400%"> Unsure what to do?<img src="~/Images/sailing.jpg" style="height:150px;width:300px;vertical-align:bottom;margin-left:100px"/></h3>
+    <p>
+        Planning the perfect date is always difficult, especially if you don't really know the other person.  How about
+        looking for an event, movie, activity or restaurant.
+    </p>
     <div class="row">
         <div class="column">
-    Love Personality Quiz: <button onclick="location.href='/Date/Quiz'" style="background-color:lightblue">Take Quiz</button><br />
+            <h5>Events</h5>
+
+            Going to an event is always a fun idea.  From a music concert to a sports game, there is always something to do! <br />
+            <button onclick="location.href='/Date/EventIndex'" style="background-color:lightblue">Events</button>
+            <br />
+            <br />
+
+            <h5>Movies</h5>
+
+            Movies are always a safe bet.  Many first dates start with a movie and seeing a movie is perfect if you are shy
+            or really don't know your date's interests.<br />
+            <button onclick="location.href='/Date/MovieIndex'" style="background-color:lightblue">Movies</button>
         </div>
         <div class="column">
-    Style Quiz: <button onclick="location.href='/Date/StyleQuiz'" style="background-color:lightblue">Take Quiz</button></div>
-</div>
+            <h5>Activities</h5>
+
+            If you prefer something a little more active and know some of your date's interests, an activity is the perfect
+            date for you. You can go compete in a game of bowling or golf, go to a museum, go to the beach, or whatever other
+            activity you can think of.<br />
+            <button onclick="location.href='/Date/ActivityIndex'" style="background-color:lightblue">Activities</button>
+            <br />
+            <br />
+            <h5>Restaurants</h5>
+
+            No date is complete without something to eat. Either before you go see that movie or after a game of bowling,
+            going to a restaurant is a must.  Find your favorite cuisine here.<br />
+            <button onclick="location.href='/Date/RestaurantIndex'" style="background-color:lightblue">Restaurants</button>
+        </div>
     </div>
-        <br />
-    <div>
-<h3>Need an Icebreaker?</h3>
-    First dates are always difficult. You never know what to say or what to talk about.  We are here to help.  You can 
-    find a funny joke to break the ice or some trivia based on your favorite category. <br />
-<button onclick="location.href='/Date/IceBreakers'" style="background-color:lightblue">Get Icebreakers</button>
-</div>
-<br />
-<div>
-    <h3>Weather</h3>
-    Knowing what the weather is going to be like is critical!  Make sure your date doesn't end up rained out and you
-    are attired appropriately. Get a three day weather forecast. <br />
-<button onclick="location.href='/Date/WeatherIndex'" style="background-color:lightblue">Weather</button>
-</div>
-<br />
-<br />
-
-<h3>Unsure what to do?</h3>
-<p>
-    Planning the perfect date is always difficult, especially if you don't really know the other person.  How about
-    looking for an event, movie, activity or restaurant.
-</p>
-<div class="row">
-    <div class="column">
-        <h5>Events</h5>
-
-        Going to an event is always a fun idea.  From a music concert to a sports game, there is always something to do! <br />
-        <button onclick="location.href='/Date/EventIndex'" style="background-color:lightblue">Events</button>
-        <br />
-        <br />
-  
-        <h5>Movies</h5>
-
-        Movies are always a safe bet.  Many first dates start with a movie and seeing a movie is perfect if you are shy
-        or really don't know your date's interests.<br />
-        <button onclick="location.href='/Date/MovieIndex'" style="background-color:lightblue">Movies</button>
-    </div>
-    <div class="column">
-        <h5>Activities</h5>
-
-        If you prefer something a little more active and know some of your date's interests, an activity is the perfect
-        date for you. You can go compete in a game of bowling or golf, go to a museum, go to the beach, or whatever other
-        activity you can think of.<br />
-        <button onclick="location.href='/Date/ActivityIndex'" style="background-color:lightblue">Activities</button>
-   <br />
-        <br />
-        <h5>Restaurants</h5>
-
-        No date is complete without something to eat. Either before you go see that movie or after a game of bowling,
-        going to a restaurant is a must.  Find your favorite cuisine here.<br />
-        <button onclick="location.href='/Date/RestaurantIndex'" style="background-color:lightblue">Restaurants</button>
-    </div>
-</div>
 
 </body>   

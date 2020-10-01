@@ -1,4 +1,4 @@
-﻿<h1 style="text-align:center">Restaurant Search</h1>
+﻿<h1 style="text-align:center;font-size:400%;color:salmon">Restaurant Search</h1>
 <br />
 
 <h5>Search for a restaurant by cuisine and location: </h5>
@@ -6,6 +6,15 @@
     <label for="zip">Zip Code:</label><br />
     <input type="text" id="zip" name="zip" minlength="5" maxlength="5" placeholder="zip" /> <br />
     <label for="cuisine">Cuisine: </label><br />
-    <input type="text" id="cuisine" name="cuisine" placeholder="cuisine" /><br />
-    <input type="submit" value="submit" />
+    <input type="text" id="cuisine" name="cuisine" placeholder="cuisine" /><br /><br />
+    <input type="submit" value="submit" style="background-color:lightblue" />
 </form>
+<img src="~/Images/restaurant.jpg" style="height:250px;width:400px;position:absolute;right:480px;bottom:225px" />
+
+<button onclick="goBack()" style="background-color:lightblue;position:absolute;bottom:100px">Go Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

@@ -3,18 +3,22 @@
 
 @model TriviaResults
 
-@foreach (Results t in Model.Trivia.results)
-{
-    <p>
-        Question: @HttpUtility.HtmlDecode(t.question)<br />
-        Answer: @HttpUtility.HtmlDecode(t.correct_answer)
-    </p>
-}
-<button onclick="location.href='/Date/CategoryTrivia?trivcategory=@Model.Results.category'">Next Page</button>
-<button onclick="goBack()">Go Back</button>
+    <h1 style="text-align:center;color:blueviolet;font-size:400%">Trivia</h1>
+    <br />
 
-<script>
-    function goBack() {
-        window.history.back();
+    @foreach (Results t in Model.Trivia.results)
+    {
+<p>
+    Question: @HttpUtility.HtmlDecode(t.question)<br />
+    Answer: @HttpUtility.HtmlDecode(t.correct_answer)
+    <hr style="height:2px;border-width:0;color:blueviolet;background-color:blueviolet">
+</p>
     }
-</script>
+    <button onclick="location.href='/Date/CategoryTrivia?trivcategory=@Model.Results.category'" style="background-color:lightblue">Next Page</button>
+    <button onclick="goBack()" style="background-color:lightblue">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
