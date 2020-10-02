@@ -31,6 +31,8 @@
 <h1 style="text-align:center;color:darkblue">Weather Forecast</h1>
 <br />
 <div class="row">
+    @if (Model.forecast != null)
+    {
     @foreach (var w in Model.forecast.forecastday)
     {
         <div class="column">
@@ -45,6 +47,11 @@
 
         </div>
 
+    }
+    }
+    else
+    {
+        <p>Invalid zip code.  Try again b </p>
     }
 </div>
 <button onclick="goBack()" style="background-color:lightblue;position:absolute;bottom:100px">Go Back</button>

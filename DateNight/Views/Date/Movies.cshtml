@@ -12,6 +12,9 @@
     </style>
 </head>
 
+@if (Model != null)
+{
+
 @foreach (Movie m in Model)
 {
     <h4>Title: @m.title</h4>
@@ -33,6 +36,11 @@
         }
         <hr style="height:2px;border-width:0;color:darkred;background-color:darkred">
     </p>
+}
+}
+else
+{
+    <p>No movies found</p>
 }
 <button onclick="goBack()" style="background-color:lightblue">Go Back</button>
 
